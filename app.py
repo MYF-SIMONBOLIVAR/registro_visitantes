@@ -114,7 +114,7 @@ if accion == "Entrada":
                         hora_entrada,
                         "",  # Hora de salida
                         sst,
-                        tratamiento
+                        tratamientodatos
                         
                         
                     ]
