@@ -61,12 +61,12 @@ st.markdown("""
     <style>
     /* Cambia el color de los labels */
     label, .stRadio label {
-        color: #1976D2 !important;
+        color:  #19287f !important;
         font-weight: bold;
     }
     /* Cambia el color del botón */
     div.stButton > button {
-        background-color: #1976D2;
+        background-color:  #19287f;
         color: white;
         font-weight: bold;
         border-radius: 8px;
@@ -74,7 +74,7 @@ st.markdown("""
     }
     /* Cambia el color del borde de los inputs */
     .stTextInput > div > div > input {
-        border: 2px solid #1976D2;
+        border: 2px solid  #19287f;
         border-radius: 6px;
     }
     </style>
