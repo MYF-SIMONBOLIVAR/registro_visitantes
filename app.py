@@ -90,6 +90,10 @@ if accion == "Entrada":
             nombrecontacto = st.text_input("Nombre de contacto de emergencia  (*)", placeholder="Ingrese el nombre de su contacto de emergencia")
             contacto = st.text_input("Contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
             tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
+            st.markdown(
+                "[Haz clic aquí para leer la información de SST](https://tusitio.com/tu_archivo_sst.pdf)",
+                unsafe_allow_html=True
+            )
             sst = st.radio("¿Leyó y entendió la información de SST?", ["Sí", "No"])
         
             enviar = st.form_submit_button("Registrar Entrada")
