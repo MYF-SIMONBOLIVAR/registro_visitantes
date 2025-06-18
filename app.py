@@ -56,28 +56,6 @@ cedula = st.text_input("Ingrese su número de cédula  (*)", placeholder="Ingres
 
 # Elección de registro
 accion = st.radio("¿Qué desea registrar?", ("Entrada", "Salida"))
- st.markdown("""
-    <style>
-    /* Cambia el color de los labels */
-    label, .stRadio label {
-        color: #1976D2 !important;
-        font-weight: bold;
-    }
-    /* Cambia el color del botón */
-    div.stButton > button {
-        background-color: #1976D2;
-        color: white;
-        font-weight: bold;
-        border-radius: 8px;
-        border: none;
-    }
-    /* Cambia el color del borde de los inputs */
-    .stTextInput > div > div > input {
-        border: 2px solid #1976D2;
-        border-radius: 6px;
-    }
-    </style>
-""", unsafe_allow_html=True)
 # Si es "Entrada", mostrar formulario
 if accion == "Entrada":
     if not st.session_state.submitted: 
