@@ -101,7 +101,7 @@ if accion == "Entrada":
                 width=400,
                 drawing_mode="freedraw",
                 key="canvas",
-        
+            )
             enviar = st.form_submit_button("Registrar Entrada")
 
             if enviar:
