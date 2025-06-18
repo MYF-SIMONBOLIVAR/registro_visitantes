@@ -91,6 +91,16 @@ if accion == "Entrada":
             contacto = st.text_input("Contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
             tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
             sst = st.radio("¿Leyó y entendió la información de SST?", ["Sí", "No"])
+            st.write("Firma (dibuje su firma en el recuadro):")
+            canvas_result = st_canvas(
+                fill_color="rgba(255, 255, 255, 0)",  # Fondo transparente
+                stroke_width=2,
+                stroke_color="#000000",
+                background_color="#FFFFFF82",
+                height=150,
+                width=400,
+                drawing_mode="freedraw",
+                key="canvas",
         
             enviar = st.form_submit_button("Registrar Entrada")
 
