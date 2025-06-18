@@ -56,11 +56,7 @@ cedula = st.text_input("Ingrese su número de cédula  (*)", placeholder="Ingres
 
 # Elección de registro
 accion = st.radio("¿Qué desea registrar?", ("Entrada", "Salida"))
-
-# Si es "Entrada", mostrar formulario
-if accion == "Entrada":
-    if not st.session_state.submitted: 
-        st.markdown("""
+ st.markdown("""
     <style>
     /* Cambia el color de los labels */
     label, .stRadio label {
@@ -82,7 +78,10 @@ if accion == "Entrada":
     }
     </style>
 """, unsafe_allow_html=True)
-        with st.form("form_entrada"):
+# Si es "Entrada", mostrar formulario
+if accion == "Entrada":
+    if not st.session_state.submitted: 
+       with st.form("form_entrada"):
             nombre = st.text_input("Nombre completo (*) ", placeholder="Ingrese su nombre completo")
             empresa = st.text_input("Empresa  (*)", placeholder="Ingrese el nombre de su empresa")
             celular = st.text_input("Celular  (*)", placeholder="Ingrese su número de celular")
