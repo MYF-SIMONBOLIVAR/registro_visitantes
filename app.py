@@ -1,17 +1,24 @@
 import streamlit as st
 from datetime import datetime
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
+from pytz import timezone
+import json
 
+# Zona horaria de Colombia
+colombia = timezone("America/Bogota")
 
-# Configuración de Google Sheets
+# Configuración de Google Sheets usando st.secrets
 SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-CREDS = ServiceAccountCredentials.from_json_keyfile_name("streamlit-visitas-83ccb372c88c.json", SCOPE)
+creds_dict = st.secrets["gcp_service_account"]
+CREDS = Credentials.from_service_account_info(creds_dict, scopes=SCOPE)
 client = gspread.authorize(CREDS)
-# ID y nombre de la hoja de cálculo donde se insertan los datos
+
+# ID y nombre de la hoja de cálculo
 SHEET_ID = "1bhqn8AC_MbZhLPt44rs5OQ4IVLYG4-oOwNK_uAmw1hM"
 SHEET_NAME = "Hoja"
 sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
+
 # Título de la aplicación
 st.set_page_config(page_title="Registro de Visitantes", page_icon="logo.png", layout="centered")
 st.markdown("<h1 style='text-align: center; color: #19287f;'>Muelles y Frenos Simón Bolívar<br> Registro de Visitantes</h1>", unsafe_allow_html=True)
@@ -19,14 +26,38 @@ st.markdown(
     "<p style='text-align: center;'>Bienvenido a nuestro Hogar, Por favor, complete el siguiente formulario para registrar su entrada, y al momento de salir registra tu salida.</p>",
     unsafe_allow_html=True
 )
+# Ocultar la foto de perfil, el botón de ayuda (?) y el botón "Manage app"
+hide_streamlit_ui = """
+    <style>
+        /* Oculta la foto de perfil */
+        [data-testid="stUserMenu"] {
+            display: none !important;
+        }
+
+        /* Oculta el ícono de ayuda (?) */
+        [data-testid="stToolbar"] {
+            display: none !important;
+        }
+
+        /* Oculta el botón "Manage app" en el pie de página */
+        footer {
+            visibility: hidden;
+        }
+    </style>
+"""
+st.markdown(hide_streamlit_ui, unsafe_allow_html=True)
+
 # Limpiar estado de sesión 
 if "submitted" not in st.session_state:
     st.session_state.submitted = False
+
 # Entrada de datos
 cedula = st.text_input("Ingrese su número de cédula  (*)", placeholder="Ingrese su número de cédula", key="cedula")
-# eleccion de registro
+
+# Elección de registro
 accion = st.radio("¿Qué desea registrar?", ("Entrada", "Salida"))
-# Si es "entrada ", mostrar formulario
+
+# Si es "Entrada", mostrar formulario
 if accion == "Entrada":
     if not st.session_state.submitted:      
         with st.form("form_entrada"):
@@ -44,7 +75,7 @@ if accion == "Entrada":
                 if not all([cedula, nombre, empresa, celular, eps, arl, nombrecontacto, contacto]):
                     st.error("Por favor, complete todos los campos obligatorios.")
                 else:
-                    now = datetime.now()
+                    now = datetime.now(colombia)
                     fecha = now.strftime("%Y-%m-%d")
                     hora_entrada = now.strftime("%H:%M:%S")
                     fila = [
@@ -58,7 +89,7 @@ if accion == "Entrada":
                         celular,
                         fecha,
                         hora_entrada,
-                        "",  
+                        "",  # Hora de salida
                         sst
                     ]
                     sheet.append_row(fila)
@@ -69,17 +100,19 @@ if accion == "Entrada":
         if st.button("Registrar otro visitante"):
             st.session_state.submitted = False
             st.rerun()
-# Si es "salida", mostrar botón para registrar salida
+
+# Si es "Salida", mostrar botón para registrar salida
 elif accion == "Salida":
     if st.button("Registrar Salida"):
         data = sheet.get_all_records()
         encontrado = False
-        for idx, row in enumerate(data, start=2):
+        for idx, row in enumerate(data, start=2):  # start=2 para tener en cuenta encabezado
             if str(row["Cédula"]).strip() == cedula.strip() and row["Hora de salida"] == "":
-                hora_salida = datetime.now().strftime("%H:%M:%S")
-                sheet.update_cell(idx, 11, hora_salida)
+                hora_salida = datetime.now(colombia).strftime("%H:%M:%S")
+                sheet.update_cell(idx, 11, hora_salida)  # Columna 11 = Hora de salida
                 st.success("Salida registrada exitosamente, Gracias por tu visita, esperamos verte de nuevo.")
                 encontrado = True
                 break
         if not encontrado:
             st.error("No se encontró un registro de entrada pendiente para esta cédula.")
+
