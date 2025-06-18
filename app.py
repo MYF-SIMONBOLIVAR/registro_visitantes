@@ -90,6 +90,7 @@ if accion == "Entrada":
             nombrecontacto = st.text_input("Nombre de contacto de emergencia  (*)", placeholder="Ingrese el nombre de su contacto de emergencia")
             contacto = st.text_input("Contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
             sst = st.radio("¿Leyó y entendió la información de SST?", ["Sí", "No"])
+            tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
             enviar = st.form_submit_button("Registrar Entrada")
 
             if enviar:
@@ -111,7 +112,9 @@ if accion == "Entrada":
                         fecha,
                         hora_entrada,
                         "",  # Hora de salida
-                        sst
+                        sst,
+                        tratamiento
+                        
                     ]
                     sheet.append_row(fila)
                     st.session_state.submitted = True
