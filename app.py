@@ -91,8 +91,7 @@ if accion == "Entrada":
             contacto = st.text_input("Contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
             tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
             sst = st.radio("¿Leyó y entendió la información de SST?", ["Sí", "No"])
-            st.write("Firma (dibuje su firma en el recuadro):")
-            
+        
             enviar = st.form_submit_button("Registrar Entrada")
 
             if enviar:
