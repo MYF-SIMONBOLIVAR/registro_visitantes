@@ -140,6 +140,15 @@ if accion == "Entrada":
                     now = datetime.now(colombia)
                     fecha = now.strftime("%Y-%m-%d")
                     hora_entrada = now.strftime("%H:%M:%S")
+                     # Convertir firma a base64
+                    if canvas_result.image_data is not None:
+                        image = Image.fromarray(canvas_result.image_data.astype('uint8'))
+                        buffered = io.BytesIO()
+                        image.save(buffered, format="PNG")
+                        firma_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+                    else:
+                        firma_base64 = "Sin firma"
+                        
                     fila = [
                         cedula,
                         nombre,
@@ -153,7 +162,8 @@ if accion == "Entrada":
                         hora_entrada,
                         "",  # Hora de salida
                         sst,
-                        tratamientodatos
+                        tratamientodatos,
+                        firma_base64
                         
                         
                     ]
