@@ -27,6 +27,16 @@ st.markdown(
     "<p style='text-align: center;'>Bienvenido a nuestro Hogar, Por favor, complete el siguiente formulario para registrar su entrada, y al momento de salir registra tu salida.</p>",
     unsafe_allow_html=True
 )
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #E3F2FD; /* Cambia este valor por el color que prefieras */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Ocultar la foto de perfil, el botón de ayuda (?) y el botón "Manage app"
 hide_streamlit_ui = """
     <style>
