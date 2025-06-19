@@ -5,9 +5,9 @@ from google.oauth2.service_account import Credentials
 from pytz import timezone
 import json
 from streamlit_drawable_canvas import st_canvas
+import base64
+import io
 from PIL import Image
-
-
 
 # Zona horaria de Colombia
 colombia = timezone("America/Bogota")
