@@ -5,6 +5,8 @@ from google.oauth2.service_account import Credentials
 from pytz import timezone
 import json
 from streamlit_drawable_canvas import st_canvas
+from PIL import Image
+
 
 
 # Zona horaria de Colombia
