@@ -119,6 +119,7 @@ if accion == "Entrada":
             )
 
             sst = st.radio("¿Leyó y entendió la información de SST?", ["Sí", "No"])
+            st.write("Firma (dibuje su firma en el recuadro):")
             enviar = st.form_submit_button("Registrar Entrada")
 
             if enviar:
