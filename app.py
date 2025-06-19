@@ -122,7 +122,7 @@ if accion == "Entrada":
             sst = st.radio("¿Leyó y entendió la información de SST?", ["Sí", "No"])
             st.write("Firma (dibuje su firma en el recuadro):")
             canvas_result = st_canvas(
-                fill_color="rgba(255, 255, 255, 0)",  # Fondo transparente
+                fill_color="rgba(235, 245, 251)",  # Fondo transparente
                 stroke_width=2,
                 stroke_color="#000000",
                 background_color="#FFFFFF82",
