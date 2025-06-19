@@ -127,7 +127,7 @@ if accion == "Entrada":
                 stroke_color="#000000",
                 background_color="#ebf5fb",
                 height=150,
-                width=400,
+                width=600,
                 drawing_mode="freedraw",
                 key="canvas",
             )
