@@ -115,7 +115,7 @@ if accion == "Entrada":
             tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
             st.markdown(
                 
-                 '<a href="https://raw.github.com/MYF-SIMONBOLIVAR/registro_visitantes/blob/main/FolletoSST.pdf" target="_blank">Lee la información de SST antes de continuar</a>',
+                 '<a href="https://raw.githubusercontent.com/MYF-SIMONBOLIVAR/registro_visitantes/blob/main/FolletoSST.pdf" target="_blank">Lee la información de SST antes de continuar</a>',
                 unsafe_allow_html=True
             )
 
