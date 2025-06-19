@@ -113,10 +113,14 @@ if accion == "Entrada":
             nombrecontacto = st.text_input("Nombre de contacto de emergencia  (*)", placeholder="Ingrese el nombre de su contacto de emergencia")
             contacto = st.text_input("Contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
             tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
-            st.markdown(
-            '<a href="https://raw.githubusercontent.com/MYF-SIMONBOLIVAR/registro_visitantes/main/FolletoSST.pdf" target="_blank">Lee la información de SST antes de continuar</a>',
-            unsafe_allow_html=True
-            )
+       st.markdown(
+    """
+    <iframe src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/MYF-SIMONBOLIVAR/registro_visitantes/main/FolletoSST.pdf&embedded=true" 
+    width="100%" height="600px" style="border:none;"></iframe>
+    """,
+    unsafe_allow_html=True
+)
+
 
 
             
