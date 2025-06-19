@@ -90,6 +90,18 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    /* Cambia el fondo del formulario */
+    div[data-testid="stForm"] {
+        background-color: #f5faff !important;  /* Cambia este color a tu preferido */
+        border-radius: 16px;
+        padding: 32px 24px 24px 24px;
+        box-shadow: 0 2px 8px rgba(25, 40, 127, 0.08);
+        border: 1px solid #1976D210;
+    }
+    </style>
+""", unsafe_allow_html=True)
 if accion == "Entrada":
     if not st.session_state.submitted: 
        with st.form("form_entrada"):
