@@ -125,7 +125,7 @@ if accion == "Entrada":
                 fill_color="rgba(235, 245, 251)",  # Fondo transparente
                 stroke_width=2,
                 stroke_color="#000000",
-                background_color="#ebf5fb",
+                background_color="#fcf3cf",
                 height=150,
                 width=600,
                 drawing_mode="freedraw",
