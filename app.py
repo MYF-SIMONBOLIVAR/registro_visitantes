@@ -101,11 +101,30 @@ if accion == "Entrada":
             nombrecontacto = st.text_input("Nombre de contacto de emergencia  (*)", placeholder="Ingrese el nombre de su contacto de emergencia")
             contacto = st.text_input("Contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
             tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
-            st.markdown(
-                "[Haz clic aquí para leer la información de SST](https://tusitio.com/tu_archivo_sst.pdf)",
-                unsafe_allow_html=True
-            )
+           # Ruta al PDF local
+            pdf_path = "FolletoSST.pdf"
+
+            with open(pdf_path, "rb") as f:
+                base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+
+            pdf_link = f'<a href="data:application/pdf;base64,{base64_pdf}" target="_blank">Haz clic aquí para leer la información de SST (PDF)</a>'
+
+            st.markdown("Lee la información de SST antes de continuar:")
+            st.markdown(pdf_link, unsafe_allow_html=True)
+
             sst = st.radio("¿Leyó y entendió la información de SST?", ["Sí", "No"])
+            tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
+            st.write("Firma (dibuje su firma en el recuadro):")
+            canvas_result = st_canvas(
+                fill_color="rgba(255, 255, 255, 0)",  # Fondo transparente
+                stroke_width=2,
+                stroke_color="#000000",
+                background_color="#FFFFFF82",
+                height=150,
+                width=400,
+                drawing_mode="freedraw",
+                key="canvas",
+            )
           
         
             enviar = st.form_submit_button("Registrar Entrada")
