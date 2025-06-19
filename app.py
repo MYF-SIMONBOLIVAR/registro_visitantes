@@ -114,7 +114,7 @@ if accion == "Entrada":
             contacto = st.text_input("Contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
             tratamientodatos = st.radio("¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
             st.markdown(
-                '[Lee la información de SST antes de continuar](FolletoSST.pdf)',
+                '[Lee la información de SST antes de continuar](https://raw.github.com/MYF-SIMONBOLIVAR/registro_visitantes/blob/main/FolletoSST.pdf)',
                 unsafe_allow_html=True
             )
 
