@@ -119,7 +119,7 @@ if accion == "Entrada":
             eps = st.text_input("EPS  (*)", placeholder="Ingrese el nombre de su EPS")      
             arl = st.text_input("ARL   (*)", placeholder="Ingrese el nombre de su ARL")
             nombrecontacto = st.text_input("Nombre de contacto de emergencia  (*)", placeholder="Ingrese el nombre de su contacto de emergencia")
-            contacto = st.text_input("Contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
+            contacto = st.text_input("Número de contacto de emergencia   (*)", placeholder="Ingrese el número de su contacto de emergencia")
             tratamientodatos = st.radio("Según la Ley 1581 de 2012, ¿Acepta el tratamiento de sus datos personales?", ["Sí", "No"])
             st.markdown(
                 '<a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/MYF-SIMONBOLIVAR/registro_visitantes/main/FolletoSST.pdf&embedded=true" target="_blank">Clic aqui para leer la información de SST antes de continuar</a>',
