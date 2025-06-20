@@ -24,12 +24,17 @@ SHEET_NAME = "Hoja"
 sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 
 # Título de la aplicación
-st.set_page_config(page_title="Registro de Visitantes", page_icon="logo.png", layout="centered")
-st.markdown("<h1 style='text-align: center; color: #19287f;'>Muelles y Frenos Simón Bolívar<br> Registro de Visitantes</h1>", unsafe_allow_html=True)
-st.markdown(
-    "<p style='text-align: center;'>Bienvenido a nuestro Hogar, Por favor, complete el siguiente formulario para registrar su entrada, y al momento de salir registra tu salida.</p>",
-    unsafe_allow_html=True
-)
+col1, col2 = st.columns([1, 4])  
+with col1:
+    st.image("logo.png", width=150) 
+with col2:
+    st.markdown(
+        "<h1 style='margin-bottom: 0; color: #19287f; text-align: center; font-size: 2rem;'>"
+        "Muelles y Frenos Simón Bolívar<br>Registro de Visitantes"
+        "</h1>",
+        unsafe_allow_html=True
+    )
+
 st.markdown(
     """
     <style>
