@@ -139,9 +139,10 @@ if accion == "Entrada":
                 key="canvas",
             )
             enviar = st.form_submit_button("Registrar Entrada")
-
             if enviar:
-                if not all([cedula, nombre, empresa, celular, eps, arl, nombrecontacto, contacto]):
+                if sst == "No":
+                    st.error("Debe leer y entender la información de SST antes de continuar.")
+                elif not all([cedula, nombre, empresa, celular, eps, arl, nombrecontacto, contacto]):
                     st.error("Por favor, complete todos los campos obligatorios.")
                 else:
                     now = datetime.now(colombia)
