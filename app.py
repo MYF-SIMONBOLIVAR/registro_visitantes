@@ -198,4 +198,9 @@ elif accion == "Salida":
                 break
         if not encontrado:
             st.error("No se encontró un registro de entrada pendiente para esta cédula.")
+st.markdown("""
+    <div style="text-align: center; margin-top: 20px; color: #19277f;">
+        <p>© 2025 Muelles y Frenos Simón Bolívar. Todos los derechos reservados.</p>
+    </div>
+""", unsafe_allow_html=True)
 
