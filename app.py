@@ -24,7 +24,7 @@ SHEET_NAME = "Hoja"
 sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 
 
-col1, col2 = st.columns([1, 4])  
+col1, col2 = st.columns([1, 4])
 with col1:
     st.image("logo.png", width=150) 
 with col2:
