@@ -39,22 +39,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Título con logo responsivo
-col1, col2 = st.columns([1, 4])
+# Título de la aplicación
+col1, col2 = st.columns([1, 4])  
 with col1:
-    st.markdown("<div class='logo-col'>", unsafe_allow_html=True)
-    st.image("logo.png", width=150)
-    st.markdown("</div>", unsafe_allow_html=True)
-
+    st.image("logo.png", width=150) 
 with col2:
     st.markdown(
-        """
-        <div class='text-col'>
-            <h1 style='margin-bottom: 0; color: #19287f; text-align: center; font-size: 2rem;'>
-                Muelles y Frenos Simón Bolívar<br>Registro de Visitantes
-            </h1>
-        </div>
-        """,
+        "<h1 style='margin-bottom: 0; color: #19287f; text-align: center; font-size: 2rem;'>"
+        "Muelles y Frenos Simón Bolívar<br>Registro de Visitantes"
+        "</h1>",
         unsafe_allow_html=True
     )
 
