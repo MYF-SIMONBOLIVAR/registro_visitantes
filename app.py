@@ -25,7 +25,6 @@ sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 
 
 # Título de la aplicación
-st.set_page_config(page_title="Visitantes", layout="wide")
 col1, col2 = st.columns([1, 4])  
 with col1:
     st.image("logo.png", width=150) 
