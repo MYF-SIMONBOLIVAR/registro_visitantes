@@ -23,16 +23,18 @@ SHEET_ID = "1bhqn8AC_MbZhLPt44rs5OQ4IVLYG4-oOwNK_uAmw1hM"
 SHEET_NAME = "Hoja"
 sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 
-col1,col2 = st.columns([1, 4])
+
+col1, col2 = st.columns([1, 4])
 with col1:
-    st.image("logo.png", width=150) 
+    st.image("logo.png", width=150)
 with col2:
-    st.markdown(
-        "<h1 style='margin-bottom: 0; color: #19287f; text-align: center; font-size: 2rem;'>"
-        "Muelles y Frenos Simón Bolívar<br>Registro de Visitantes"
-        "</h1>",
-        unsafe_allow_html=True
-    )
+    st.markdown(
+        "<h1 style='margin-bottom: 0; color: #19287f; text-align: center; font-size: 2rem;'>"
+        "Muelles y Frenos Simón Bolívar<br>Registro de Visitantes"
+        "</h1>",
+        unsafe_allow_html=True
+    )
+
 
 st.markdown(
     """
