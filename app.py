@@ -23,17 +23,41 @@ SHEET_ID = "1bhqn8AC_MbZhLPt44rs5OQ4IVLYG4-oOwNK_uAmw1hM"
 SHEET_NAME = "Hoja"
 sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 
-# Título de la aplicación
-col1, col2 = st.columns([1, 4])  
+# CSS responsivo para centrar en móviles
+st.markdown("""
+    <style>
+    @media only screen and (max-width: 600px) {
+        .logo-col {
+            display: flex;
+            justify-content: center !important;
+        }
+        .text-col h1 {
+            font-size: 1.5rem !important;
+            text-align: center !important;
+        }
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Título con logo responsivo
+col1, col2 = st.columns([1, 4])
 with col1:
-    st.image("logo.png", width=150) 
+    st.markdown("<div class='logo-col'>", unsafe_allow_html=True)
+    st.image("logo.png", width=150)
+    st.markdown("</div>", unsafe_allow_html=True)
+
 with col2:
     st.markdown(
-        "<h1 style='margin-bottom: 0; color: #19287f; text-align: center; font-size: 2rem;'>"
-        "Muelles y Frenos Simón Bolívar<br>Registro de Visitantes"
-        "</h1>",
+        """
+        <div class='text-col'>
+            <h1 style='margin-bottom: 0; color: #19287f; text-align: center; font-size: 2rem;'>
+                Muelles y Frenos Simón Bolívar<br>Registro de Visitantes
+            </h1>
+        </div>
+        """,
         unsafe_allow_html=True
     )
+
 
 st.markdown(
     """
