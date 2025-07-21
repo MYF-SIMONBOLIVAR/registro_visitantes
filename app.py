@@ -24,16 +24,39 @@ SHEET_NAME = "Hoja"
 sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 
 
-col1, col2 = st.columns([1, 4])  
-with col1:
-    st.image("logo.png", width=150) 
-with col2:
-    st.markdown(
-        "<h1 style='margin-bottom: 0; color: #19287f; text-align: center; font-size: 2rem;'>"
-        "Muelles y Frenos Simón Bolívar<br>Registro de Visitantes"
-        "</h1>",
-        unsafe_allow_html=True
-    )
+st.markdown("""
+    <style>
+    /* Estilos para centrar el contenido */
+    .header-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        gap: 20px;
+    }
+
+    /* Estilo para dispositivos móviles */
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Contenedor con HTML personalizado
+st.markdown("""
+<div class="header-container">
+    <img src="logo.png" width="150">
+    <div>
+        <h1 style='margin: 0; color: #19287f; font-size: 1.8rem;'>Muelles y Frenos Simón Bolívar</h1>
+        <h2 style='margin: 0; color: #19287f; font-size: 1.2rem;'>Registro de Visitantes</h2>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 
 st.markdown(
