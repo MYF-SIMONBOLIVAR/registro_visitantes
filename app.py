@@ -23,21 +23,6 @@ SHEET_ID = "1bhqn8AC_MbZhLPt44rs5OQ4IVLYG4-oOwNK_uAmw1hM"
 SHEET_NAME = "Hoja"
 sheet = client.open_by_key(SHEET_ID).worksheet(SHEET_NAME)
 
-# CSS responsivo para centrar en móviles
-st.markdown("""
-    <style>
-    @media only screen and (max-width: 600px) {
-        .logo-col {
-            display: flex;
-            justify-content: center !important;
-        }
-        .text-col h1 {
-            font-size: 1.5rem !important;
-            text-align: center !important;
-        }
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 # Título de la aplicación
 col1, col2 = st.columns([1, 4])  
