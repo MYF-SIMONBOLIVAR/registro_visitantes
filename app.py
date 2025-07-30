@@ -34,7 +34,8 @@ with col2:
         "</h1>",
         unsafe_allow_html=True
     )
-
+    # Línea decorativa
+    st.markdown("<hr style='border: none; height: 4px; background-color: #fab70e;'>", unsafe_allow_html=True)
 
 st.markdown(
     """
